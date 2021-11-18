@@ -7,7 +7,7 @@ function App() {
   const [productQuantity, setProductQuantity]=useState(0);
 
   const addToList=()=>{
-    Axios.post("http://localhost:3000/insert",{productName:prodddductName,productQuantity:productQuantity});
+    Axios.post("http://localhost:3000/insert",{productName:productName,productQuantity:productQuantity});
   }
   return (
     <div className="App">
