@@ -19,14 +19,14 @@ const [productList, setproductList]= useState([]);
 
   const addToDB=()=>{
     Axios.post("http://localhost:3000/insert",{productName:productName,productQuantity:productQuantity});
-  }
+  };
 
   const updateProduct=(id)=>{
     Axios.put("http://localhost:3000/update",{id:id, newProductName:newProductName});
-  }
+  };
   const deleteProduct=(id)=>{
-    Axios.delete(`http://localhost:3000/delete/${id}/`);
-  }
+    Axios.delete(`http://localhost:3000/delete/${id}`);
+  };
 
   return (
     <div className="App">
@@ -45,8 +45,8 @@ const [productList, setproductList]= useState([]);
         <h1>{val.productQuantity}</h1>
         <input type="text" placeholder="Nuevo nombre"
         onChange={(event)=>{setNewProductName(event.target.value)}}/>
-        <button onClick={()=>{updateProduct(val._id)}}>ACTUALIZAR</button>
-        <button onClick={()=>{deleteProduct(val._id)}}>ELIMINAR</button>
+        <button onClick={()=>updateProduct(val._id)}>ACTUALIZAR</button>
+        <button onClick={()=>deleteProduct(val._id)}>ELIMINAR</button>
         </div>
         );
     })}
