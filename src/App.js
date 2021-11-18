@@ -25,7 +25,7 @@ const [productList, setproductList]= useState([]);
     Axios.put("http://localhost:3000/update",{id:id, newProductName:newProductName});
   }
   const deleteProduct=(id)=>{
-    Axios.delete(`http://localhost:3000/delete${id}/`);
+    Axios.delete(`http://localhost:3000/delete/${id}/`);
   }
 
   return (
