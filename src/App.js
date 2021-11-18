@@ -19,13 +19,28 @@ const [productList, setproductList]= useState([]);
 
   const addToDB=()=>{
     Axios.post("http://localhost:3000/insert",{productName:productName,productQuantity:productQuantity});
+     useEffect(()=>{
+    Axios.get("http://localhost:3000/read").then((response)=>{
+      setproductList(response.data);
+    })
+  },[]);
   };
 
   const updateProduct=(id)=>{
     Axios.put("http://localhost:3000/update",{id:id, newProductName:newProductName});
+     useEffect(()=>{
+    Axios.get("http://localhost:3000/read").then((response)=>{
+      setproductList(response.data);
+    })
+  },[]);
   };
   const deleteProduct=(id)=>{
     Axios.delete(`http://localhost:3000/delete/${id}`);
+     useEffect(()=>{
+    Axios.get("http://localhost:3000/read").then((response)=>{
+      setproductList(response.data);
+    })
+  },[]);
   };
 
   return (
